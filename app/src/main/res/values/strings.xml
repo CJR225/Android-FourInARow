@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">FourInARow</string>
+    <string name="Game_Header">Four In A Row</string>
+    <string name="player_win">Player Has Won!</string>
+    <string name="computer_win">Computer Has Won!</string>
+    <string name="tie_game">The Game is a Tie!</string>
+    <string name="reset">Reset</string>
+</resources>
