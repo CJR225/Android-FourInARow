@@ -2,6 +2,7 @@ package edu.quinnipiac.ser210.fourinarow;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -84,18 +85,18 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
 
-        if (!((ImageButton) view).getBackground().equals(R.drawable.ic_launcher_background)) {
+
+        if (!((ImageButton) view).getBackground().getConstantState().equals(getResources().getDrawable(R.drawable.boxspace_foreground).getConstantState())) {
             return;
         }
         if (activePlayer == 1) {
             ((ImageButton) view).setBackgroundResource(R.drawable.x_tictactoe);
-        } else {
-            ((ImageButton) view).setBackgroundResource(R.drawable.o_tictactoe);
+            roundCount++;
         }
-        roundCount++;
-        if (checkForWinner() == GameActivity.RED_WON) {
+
+        if (checkForWinner() == 2) {
             playerWins();
-        } else if (checkForWinner() == GameActivity.BLUE_WON) {
+        } else if (checkForWinner() == 3) {
             computerWins();
         } else if (roundCount == 36) {
             gameTIE();
@@ -103,6 +104,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             activePlayer = 0;
             getComputerMove();
         }
+
     }
 
     public int randNum() {
@@ -114,7 +116,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     public void clearBoard() {
         for (int i = 0; i < buttons.size(); i++) {
 
-            buttons.get(i).setBackgroundResource(R.drawable.ic_launcher_background);
+            buttons.get(i).setBackgroundResource(R.drawable.boxspace_foreground);
         }
     }
 
@@ -124,9 +126,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public int getComputerMove() {
+
         if (activePlayer == 0) {
 
-            if (buttons.get(randNum()).getBackground().equals(R.drawable.ic_launcher_background)) {
+            if (buttons.get(randNum()).getBackground().getConstantState().equals(getResources().getDrawable(R.drawable.boxspace_foreground).getConstantState())
+                    && !(buttons.get(randNum()).getBackground().getConstantState().equals(getResources().getDrawable(R.drawable.x_tictactoe).getConstantState()))) {
                 buttons.get(randNum()).setBackgroundResource(R.drawable.o_tictactoe);
                 roundCount++;
             } else {
@@ -139,64 +143,49 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public int checkForWinner() {
-        String[][] field = new String[6][6];
 
-        for (int row = 0; row < field.length; row++) {
-            for (int col = 0; col < field[0].length - 3; col++) {
 
-                if (field[row][col] == field[row][col + 1] && field[row][col] == field[row][col + 2]
-                        && field[row][col] == field[row][col + 3]) {
+        for (int i = 0; i < buttons.size(); i++) {
 
-                    if (field[row][col] == "O") {
 
-                        return 3;
-                    } else if (field[row][col] == "X") {
-                        return 2;
-                    }
+            if (buttons.get(i) == buttons.get(i + 1) && buttons.get(i) == buttons.get(i + 2)
+                    && buttons.get(i) == buttons.get(i + 3)) {
 
+                if (buttons.get(i).equals(getResources().getDrawable(R.drawable.o_tictactoe))) {
+
+                    return 3;
+                } else if (buttons.get(i).equals(getResources().getDrawable(R.drawable.x_tictactoe))) {
+                    return 2;
                 }
 
-
             }
+
+
         }
 
-        for (int row = 0; row < field.length - 3; row++) {
-            for (int col = 0; col < field[0].length; col++) {
-                if (field[row][col] == field[row + 1][col] && field[row][col] == field[row + 2][col]
-                        && field[row][col] == field[row + 3][col]) {
-                    if (field[row][col] == "O") {
-                        return 3;
-                    } else if (field[row][col] == "X") {
-                        return 2;
-                    }
+
+        for (int i = 0; i < buttons.size(); i++) {
+
+            if (buttons.get(i) == buttons.get(i + 6) && buttons.get(i) == buttons.get(i + 12)
+                    && buttons.get(i) == buttons.get(i + 18)) {
+                if (buttons.get(i).equals(getResources().getDrawable(R.drawable.o_tictactoe))) {
+                    return 3;
+                } else if (buttons.get(i).equals(getResources().getDrawable(R.drawable.x_tictactoe))) {
+                    return 2;
                 }
             }
+
         }
 
-        for (int row = 3; row < field.length; row++) {
-            for (int col = 0; col < field[0].length - 3; col++) {
-                if (field[row][col] == field[row - 1][col + 1] && field[row][col] == field[row - 2][col + 2]
-                        && field[row][col] == field[row - 3][col + 3]) {
-                    if (field[row][col] == "O") {
-                        return 3;
-                    } else if (field[row][col] == "X") {
-                        return 2;
-                    }
-                }
-            }
-        }
+        for (int i = 0; i < buttons.size(); i++) {
 
-        for (int row = 0; row < field.length - 3; row++) {
+            if (buttons.get(i) == buttons.get(i + 7) && buttons.get(i) == buttons.get(i + 14)
+                    && buttons.get(i) == buttons.get(i + 21)) {
 
-            for (int col = 0; col < field[0].length - 3; col++) {
-
-                if (field[row][col] == field[row + 1][col + 1] && field[row][col] == field[row + 2][col + 2]
-                        && field[row][col] == field[row + 3][col + 3]) {
-                    if (field[row][col] == "O") {
-                        return 3;
-                    } else if (field[row][col] == "X") {
-                        return 2;
-                    }
+                if (buttons.get(i).getBackground().getConstantState().equals(getResources().getDrawable(R.drawable.o_tictactoe).getConstantState())) {
+                    return 3;
+                } else if (buttons.get(i).getBackground().getConstantState().equals(getResources().getDrawable(R.drawable.x_tictactoe).getConstantState())) {
+                    return 2;
                 }
             }
         }
