@@ -1,5 +1,6 @@
 /**
  * FourInARow - Implements IGame interface methods backend for gameactivity
+ *
  * @author Chris Rocco
  * @date 2/20/2022
  */
@@ -33,7 +34,6 @@ public class FourInARow implements IGame {
     }
 
 
-
     @Override
     public void setMove(int player, int location) { // location is number between 0-35
         // take location(15) and calculate
@@ -47,7 +47,6 @@ public class FourInARow implements IGame {
         if (board[row][col] == EMPTY) {
             board[row][col] = player;
         }
-
 
 
     }

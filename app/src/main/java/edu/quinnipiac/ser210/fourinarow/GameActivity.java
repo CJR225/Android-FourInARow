@@ -1,5 +1,6 @@
 /**
  * GameActivity - Creates main game of gridlayout and displays scores and imageicons, includes reset button
+ *
  * @author Chris Rocco
  * @date 2/20/2022
  */
@@ -31,7 +32,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     private int roundCount;
     private int playerscore = 0;
     private int computerscore = 0;
-    private int player,location;
+    private int player, location;
 
     String username;
     public static FourInARow FIRboard = new FourInARow();
@@ -106,15 +107,15 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-            String buttonID = view.getResources().getResourceEntryName(view.getId());
-            location = Integer.parseInt(buttonID.substring(buttonID.length()-2, buttonID.length()));
+        String buttonID = view.getResources().getResourceEntryName(view.getId());
+        location = Integer.parseInt(buttonID.substring(buttonID.length() - 2, buttonID.length()));
 
         if (!((ImageButton) view).getBackground().getConstantState().equals(getResources().getDrawable(R.drawable.boxspace_foreground).getConstantState())) {
             return;
         }
         if (activePlayer == 1) {
             ((ImageButton) view).setBackgroundResource(R.drawable.x_tictactoe);
-            FIRboard.setMove(2,location);
+            FIRboard.setMove(2, location);
 
         }
 
@@ -126,12 +127,14 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             gameTIE();
         } else {
             int computerMove = FIRboard.getComputerMove();
-            FIRboard.setMove(1,computerMove);
+
+            FIRboard.setMove(1, computerMove);
             buttons.get(computerMove).setBackgroundResource(R.drawable.o_tictactoe);
+
+
         }
-
-
     }
+
 
     public int randNum() {
         int ranLocation = ((int) (Math.random() * ((36 - 0))));
@@ -146,9 +149,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         }
         FIRboard.clearBoard();
     }
-
-
-
 
 
     private void updatePlayerPoints() {
@@ -196,9 +196,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         super.onSaveInstanceState(outState, outPersistentState);
 
         outState.putInt("RoundCount", roundCount);
-        outState.putInt("playerscore",playerscore);
-        outState.putInt("computerscore",computerscore);
-        outState.putInt("activePlayer",activePlayer);
+        outState.putInt("playerscore", playerscore);
+        outState.putInt("computerscore", computerscore);
+        outState.putInt("activePlayer", activePlayer);
 
     }
 

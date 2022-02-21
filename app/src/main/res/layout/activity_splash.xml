@@ -16,7 +16,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.501"
-        app:srcCompat="@drawable/tictactoe" />
+        app:srcCompat="@drawable/tictactoe"
+        android:contentDescription="@string/SplashBackground" />
 
     <Button
         android:id="@+id/play_button"
@@ -24,8 +25,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="335dp"
         android:onClick="onClick"
-        android:text="play"
-        android:textSize="30dp"
+        android:text="@string/play"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,9 +42,9 @@
         android:layout_marginEnd="35dp"
         android:layout_marginBottom="142dp"
         android:gravity="center_horizontal"
-        android:text="Four In A Row"
+        android:text="@string/Game_Header"
         android:textColor="@color/white"
-        android:textSize="50dp"
+        android:textSize="50sp"
         app:layout_constraintBottom_toTopOf="@+id/play_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

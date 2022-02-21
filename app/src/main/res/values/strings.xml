@@ -6,4 +6,6 @@
     <string name="tie_game">The Game is a Tie!</string>
     <string name="reset">Reset</string>
     <string name="username">Username:</string>
+    <string name="SplashBackground">Splash Background</string>
+    <string name="play">Play</string>
 </resources>

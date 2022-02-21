@@ -28,10 +28,8 @@
             android:layout_row="0"
             android:layout_column="0"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
-        />
+            android:freezesText="true" />
+
 
         <ImageButton
 
@@ -41,9 +39,7 @@
             android:layout_row="0"
             android:layout_column="1"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
         <ImageButton
 
@@ -53,9 +49,7 @@
             android:layout_row="0"
             android:layout_column="2"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
         <ImageButton
 
@@ -65,9 +59,7 @@
             android:layout_row="0"
             android:layout_column="3"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
         <ImageButton
 
@@ -77,9 +69,7 @@
             android:layout_row="0"
             android:layout_column="4"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
         <ImageButton
 
@@ -89,9 +79,7 @@
             android:layout_row="0"
             android:layout_column="5"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
         <ImageButton
 
@@ -101,9 +89,7 @@
             android:layout_row="1"
             android:layout_column="0"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
         <ImageButton
 
@@ -113,9 +99,7 @@
             android:layout_row="1"
             android:layout_column="1"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
         <ImageButton
 
@@ -125,9 +109,7 @@
             android:layout_row="1"
             android:layout_column="2"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
 
         <ImageButton
@@ -138,9 +120,7 @@
             android:layout_row="1"
             android:layout_column="3"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
         <ImageButton
 
@@ -150,9 +130,7 @@
             android:layout_row="1"
             android:layout_column="4"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
         <ImageButton
 
@@ -162,9 +140,7 @@
             android:layout_row="1"
             android:layout_column="5"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
         <ImageButton
 
@@ -174,9 +150,7 @@
             android:layout_row="2"
             android:layout_column="0"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
         <ImageButton
 
@@ -186,9 +160,7 @@
             android:layout_row="2"
             android:layout_column="1"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
         <ImageButton
 
@@ -198,9 +170,7 @@
             android:layout_row="2"
             android:layout_column="2"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
 
         <ImageButton
@@ -211,9 +181,7 @@
             android:layout_row="2"
             android:layout_column="3"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
         <ImageButton
 
@@ -223,9 +191,7 @@
             android:layout_row="2"
             android:layout_column="4"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
         <ImageButton
 
@@ -235,9 +201,7 @@
             android:layout_row="2"
             android:layout_column="5"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
         <ImageButton
 
@@ -247,9 +211,7 @@
             android:layout_row="3"
             android:layout_column="0"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
         <ImageButton
 
@@ -259,9 +221,7 @@
             android:layout_row="3"
             android:layout_column="1"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
         <ImageButton
 
@@ -271,9 +231,7 @@
             android:layout_row="3"
             android:layout_column="2"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
 
         <ImageButton
@@ -284,9 +242,7 @@
             android:layout_row="3"
             android:layout_column="3"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
         <ImageButton
 
@@ -296,9 +252,7 @@
             android:layout_row="3"
             android:layout_column="4"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
         <ImageButton
 
@@ -308,9 +262,7 @@
             android:layout_row="3"
             android:layout_column="5"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
         <ImageButton
 
@@ -320,9 +272,7 @@
             android:layout_row="4"
             android:layout_column="0"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
         <ImageButton
 
@@ -332,9 +282,7 @@
             android:layout_row="4"
             android:layout_column="1"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
         <ImageButton
 
@@ -344,9 +292,7 @@
             android:layout_row="4"
             android:layout_column="2"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
 
         <ImageButton
@@ -357,9 +303,7 @@
             android:layout_row="4"
             android:layout_column="3"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
         <ImageButton
 
@@ -369,9 +313,7 @@
             android:layout_row="4"
             android:layout_column="4"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
         <ImageButton
 
@@ -381,9 +323,7 @@
             android:layout_row="4"
             android:layout_column="5"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
         <ImageButton
 
@@ -393,9 +333,7 @@
             android:layout_row="5"
             android:layout_column="0"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
         <ImageButton
 
@@ -405,9 +343,7 @@
             android:layout_row="5"
             android:layout_column="1"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
         <ImageButton
 
@@ -417,9 +353,7 @@
             android:layout_row="5"
             android:layout_column="2"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
 
         <ImageButton
@@ -430,9 +364,7 @@
             android:layout_row="5"
             android:layout_column="3"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
         <ImageButton
 
@@ -442,9 +374,7 @@
             android:layout_row="5"
             android:layout_column="4"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
         <ImageButton
 
@@ -454,9 +384,7 @@
             android:layout_row="5"
             android:layout_column="5"
             android:background="@drawable/boxspace_foreground"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:freezesText="true" />
 
 
     </GridLayout>
@@ -468,6 +396,7 @@
         android:layout_marginStart="84dp"
         android:layout_marginTop="29dp"
         android:layout_marginEnd="84dp"
+        android:freezesText="true"
         android:gravity="center_horizontal"
         android:text="@string/Game_Header"
         android:textSize="30sp"
@@ -484,6 +413,7 @@
         android:layout_marginTop="64dp"
         android:layout_marginEnd="206dp"
         android:layout_marginBottom="28dp"
+        android:freezesText="true"
         android:text="Player : 0"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -500,6 +430,7 @@
         android:layout_marginStart="27dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="207dp"
+        android:freezesText="true"
         android:text="Computer : 0"
         android:textSize="20sp"
         android:textStyle="bold"
