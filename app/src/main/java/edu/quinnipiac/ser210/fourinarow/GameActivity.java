@@ -1,9 +1,17 @@
+/**
+ * GameActivity - Creates main game of gridlayout and displays scores and imageicons, includes reset button
+ * @author Chris Rocco
+ * @date 2/20/2022
+ */
+
 package edu.quinnipiac.ser210.fourinarow;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -13,28 +21,38 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameActivity extends AppCompatActivity implements View.OnClickListener, IGame {
+public class GameActivity extends AppCompatActivity implements View.OnClickListener {
 
     boolean gameActive = true;
     // Player representation
-    // true - X
-    // false - O
-    int activePlayer = 1;
+    // 1 - X
+    // 0 - O
+    private int activePlayer = 1;
     private int roundCount;
-    int playerscore = 0;
-    int computerscore = 0;
+    private int playerscore = 0;
+    private int computerscore = 0;
+    private int player,location;
+
+    String username;
+    public static FourInARow FIRboard = new FourInARow();
+
+    private TextView playerScore, computerScore;
+    private static final int ROWS = 6, COLS = 6;
+    private int[][] board = new int[ROWS][COLS];
+
 
     private List<ImageButton> buttons;
     private static final int[] BUTTON_IDS = {
-            R.id.box1,
-            R.id.box2,
-            R.id.box3,
-            R.id.box4,
-            R.id.box5,
-            R.id.box6,
-            R.id.box7,
-            R.id.box8,
-            R.id.box9,
+            R.id.box00,
+            R.id.box01,
+            R.id.box02,
+            R.id.box03,
+            R.id.box04,
+            R.id.box05,
+            R.id.box06,
+            R.id.box07,
+            R.id.box08,
+            R.id.box09,
             R.id.box10,
             R.id.box11,
             R.id.box12,
@@ -61,13 +79,15 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             R.id.box33,
             R.id.box34,
             R.id.box35,
-            R.id.box36,
     };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        playerScore = findViewById(R.id.playerscore);
+        computerScore = findViewById(R.id.computerscore);
 
         buttons = new ArrayList<ImageButton>(BUTTON_IDS.length);
         for (int id : BUTTON_IDS) {
@@ -76,34 +96,40 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             buttons.add(button);
 
         }
+        username = getIntent().getStringExtra("usernameKey");
+        updatePlayerPoints();
     }
 
     public void onClickReset(View view) {
-        clearBoard();
+        resetGame();
     }
 
     @Override
     public void onClick(View view) {
-
+            String buttonID = view.getResources().getResourceEntryName(view.getId());
+            location = Integer.parseInt(buttonID.substring(buttonID.length()-2, buttonID.length()));
 
         if (!((ImageButton) view).getBackground().getConstantState().equals(getResources().getDrawable(R.drawable.boxspace_foreground).getConstantState())) {
             return;
         }
         if (activePlayer == 1) {
             ((ImageButton) view).setBackgroundResource(R.drawable.x_tictactoe);
-            roundCount++;
+            FIRboard.setMove(2,location);
+
         }
 
-        if (checkForWinner() == 2) {
+        if (FIRboard.checkForWinner() == 2) {
             playerWins();
-        } else if (checkForWinner() == 3) {
+        } else if (FIRboard.checkForWinner() == 3) {
             computerWins();
-        } else if (roundCount == 36) {
+        } else if (FIRboard.checkForWinner() == 1) {
             gameTIE();
         } else {
-            activePlayer = 0;
-            getComputerMove();
+            int computerMove = FIRboard.getComputerMove();
+            FIRboard.setMove(1,computerMove);
+            buttons.get(computerMove).setBackgroundResource(R.drawable.o_tictactoe);
         }
+
 
     }
 
@@ -112,108 +138,77 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         return ranLocation;
     }
 
-    @Override
-    public void clearBoard() {
+
+    public void clearButtons() {
         for (int i = 0; i < buttons.size(); i++) {
 
             buttons.get(i).setBackgroundResource(R.drawable.boxspace_foreground);
         }
+        FIRboard.clearBoard();
     }
 
-    @Override
-    public void setMove(int player, int location) {
+
+
+
+
+    private void updatePlayerPoints() {
+        playerScore.setText(username + " : " + playerscore);
     }
 
-    @Override
-    public int getComputerMove() {
-
-        if (activePlayer == 0) {
-
-            if (buttons.get(randNum()).getBackground().getConstantState().equals(getResources().getDrawable(R.drawable.boxspace_foreground).getConstantState())
-                    && !(buttons.get(randNum()).getBackground().getConstantState().equals(getResources().getDrawable(R.drawable.x_tictactoe).getConstantState()))) {
-                buttons.get(randNum()).setBackgroundResource(R.drawable.o_tictactoe);
-                roundCount++;
-            } else {
-                getComputerMove();
-            }
-            activePlayer = 1;
-        }
-        return 0;
+    private void updateComputerPoints() {
+        computerScore.setText("Computer : " + computerscore);
     }
-
-    @Override
-    public int checkForWinner() {
-
-
-        for (int i = 0; i < buttons.size(); i++) {
-
-
-            if (buttons.get(i) == buttons.get(i + 1) && buttons.get(i) == buttons.get(i + 2)
-                    && buttons.get(i) == buttons.get(i + 3)) {
-
-                if (buttons.get(i).equals(getResources().getDrawable(R.drawable.o_tictactoe))) {
-
-                    return 3;
-                } else if (buttons.get(i).equals(getResources().getDrawable(R.drawable.x_tictactoe))) {
-                    return 2;
-                }
-
-            }
-
-
-        }
-
-
-        for (int i = 0; i < buttons.size(); i++) {
-
-            if (buttons.get(i) == buttons.get(i + 6) && buttons.get(i) == buttons.get(i + 12)
-                    && buttons.get(i) == buttons.get(i + 18)) {
-                if (buttons.get(i).equals(getResources().getDrawable(R.drawable.o_tictactoe))) {
-                    return 3;
-                } else if (buttons.get(i).equals(getResources().getDrawable(R.drawable.x_tictactoe))) {
-                    return 2;
-                }
-            }
-
-        }
-
-        for (int i = 0; i < buttons.size(); i++) {
-
-            if (buttons.get(i) == buttons.get(i + 7) && buttons.get(i) == buttons.get(i + 14)
-                    && buttons.get(i) == buttons.get(i + 21)) {
-
-                if (buttons.get(i).getBackground().getConstantState().equals(getResources().getDrawable(R.drawable.o_tictactoe).getConstantState())) {
-                    return 3;
-                } else if (buttons.get(i).getBackground().getConstantState().equals(getResources().getDrawable(R.drawable.x_tictactoe).getConstantState())) {
-                    return 2;
-                }
-            }
-        }
-        return 0;
-
-
-    }
-
 
     private void playerWins() {
-        findViewById(R.id.playerscore).equals("Player : " + playerscore);
-        Toast.makeText(this, "Player Has Won!", Toast.LENGTH_LONG).show();
-        clearBoard();
         playerscore++;
+        updatePlayerPoints();
+        Toast.makeText(this, "Player Has Won!", Toast.LENGTH_LONG).show();
+        clearButtons();
+
     }
 
     private void computerWins() {
-
-        findViewById(R.id.playerscore).equals("Computer : " + computerscore);
-        Toast.makeText(this, "Computer Has Won!", Toast.LENGTH_LONG).show();
-        clearBoard();
         computerscore++;
+        updateComputerPoints();
+        Toast.makeText(this, "Computer Has Won!", Toast.LENGTH_LONG).show();
+
+        clearButtons();
+
     }
 
     private void gameTIE() {
         //WinText.setText(R.string.tie_game);
         Toast.makeText(this, "Game is a Tie!", Toast.LENGTH_LONG).show();
-        clearBoard();
+        clearButtons();
+
     }
 
+    private void resetGame() {
+        clearButtons();
+        computerscore = 0;
+        playerscore = 0;
+        updateComputerPoints();
+        updatePlayerPoints();
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState, @NonNull PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
+
+        outState.putInt("RoundCount", roundCount);
+        outState.putInt("playerscore",playerscore);
+        outState.putInt("computerscore",computerscore);
+        outState.putInt("activePlayer",activePlayer);
+
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        roundCount = savedInstanceState.getInt("RoundCount");
+        playerscore = savedInstanceState.getInt("playerscore");
+        computerscore = savedInstanceState.getInt("computerscore");
+        activePlayer = savedInstanceState.getInt("activePlayer");
+    }
 }

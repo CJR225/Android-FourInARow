@@ -1,5 +1,10 @@
-package edu.quinnipiac.ser210.fourinarow;
+/**
+ * IGame interface.
+ * @author relkharboutly
+ * @date 1/12/2022
+ */
 
+package edu.quinnipiac.ser210.fourinarow;
 
 public interface IGame {
     // Name-constants to represent the seeds and cell contents
